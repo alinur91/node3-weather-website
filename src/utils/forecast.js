@@ -17,9 +17,9 @@ const forecast = (longitude,latitude,callback) =>{
         }
         
         else{ /* if everything goes right forecast will show up */
-
+            console.log(body.daily.data[0])
             callback(undefined, 
-`${body.daily.data[0].summary}. It's currently ${body.currently.temperature}  degrees out. There is a ${body.currently.precipProbability}% chance of rain `
+`${body.daily.data[0].summary}. It's currently ${body.currently.temperature}  degrees out.Max temperatureHigh for today is ${body.daily.data[0].temperatureHigh}C and temperatureLow is ${body.daily.data[0].temperatureLow}C. There is a ${body.currently.precipProbability}% chance of rain `
                 )
         }
         
