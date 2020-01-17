@@ -11,6 +11,9 @@ const partialsPath= path.join(__dirname, '../templates/partials' )
 /* now we can tell hbs that we're gona put our partials in this partials dierctory */
 const app = express() /* express is a function not object */
 
+const port = process.env.PORT || 3000 /* ili to ili drugoe odno iz dvux,herokudin porti ili bizdin 3000 */
+/* on heroku this will exist process.env.PORT it will be used,locally this won't exist and 3000 will be used */
+
 // Setup handlebars engine and views location
 app.set('view engine', 'hbs') /* handlebars koldany ushin nastroika isteimyz */
 app.set('views', viewsPath) /*views folderdin atyn ozgerttik na templates poetomy
@@ -106,4 +109,4 @@ app.get('*', (req,res)=>{
     } )
 })
 /* Serverdi bastay ushin uistemiz app.listen(i port) */
-app.listen(3000, ()=> console.log('Serverimiz 3000 portta istep zhatyr browserde...'))
+app.listen(port, ()=> console.log('Serverimiz 3000 portta istep zhatyr ili '+port))
